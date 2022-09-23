@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Stocks from "./pages/Stock";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <Switch>
         <Route exact path="/">
           <Home/>
         </Route>
@@ -21,9 +22,10 @@ function App() {
         <Route exact path="/stocks">
           <Dashboard/>
         </Route>
-        <Route path="/stocks/:symbol">
-          <Stocks/>
-        </Route>
+        <Route path="/stocks/:symbol" 
+        render={(routerProps)=> <Stocks {...routerProps}/>}
+        />
+      </Switch>
     </div>
   );
 }
