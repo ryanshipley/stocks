@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Dashboard from "./components/Dashboard";
 import Nav from "./components/Nav";
+import stocks from "./Data";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Dashboard/>
         </Route>
         <Route path="/stocks/:symbol" 
-        render={(routerProps)=> <Stocks {...routerProps}/>}
+        render={(routerProps)=> <Stocks stocks={stocks} {...routerProps}/>}
         />
       </Switch>
     </div>
